@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ea3a71e3-85eb-49a8-bee0-e90945058a16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\llist">
+      <UniqueIdentifier>{4c60a4af-ade6-4c57-8a89-459bf402961f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lstack">
+      <UniqueIdentifier>{3c51a567-6749-46d7-842f-39954d95c2ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lvector">
+      <UniqueIdentifier>{ee160289-dd50-4e6b-a253-7a58d192a931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lqueue">
+      <UniqueIdentifier>{ea049983-cb28-4e36-92a4-fe37d0ad6e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{a08c8607-997a-4422-9b00-3fa0d505bdb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="llist\llist.cpp">
+      <Filter>src\llist</Filter>
+    </ClCompile>
+    <ClCompile Include="lqueue\queue.cpp">
+      <Filter>src\lqueue</Filter>
+    </ClCompile>
+    <ClCompile Include="lstack\stack_cpp.cpp">
+      <Filter>src\lstack</Filter>
+    </ClCompile>
+    <ClCompile Include="lvector\lvector.cpp">
+      <Filter>src\lvector</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="lqueue\queue_c.cpp">
+      <Filter>src\lqueue</Filter>
+    </ClCompile>
+    <ClCompile Include="lstack\stack_c.cpp">
+      <Filter>src\lstack</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="llist\llist.h">
+      <Filter>src\llist</Filter>
+    </ClInclude>
+    <ClInclude Include="lqueue\queue.h">
+      <Filter>src\lqueue</Filter>
+    </ClInclude>
+    <ClInclude Include="lqueue\queue_c.h">
+      <Filter>src\lqueue</Filter>
+    </ClInclude>
+    <ClInclude Include="lstack\stack_c.h">
+      <Filter>src\lstack</Filter>
+    </ClInclude>
+    <ClInclude Include="lstack\stack_cpp.h">
+      <Filter>src\lstack</Filter>
+    </ClInclude>
+    <ClInclude Include="lvector\lvector.h">
+      <Filter>src\lvector</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
