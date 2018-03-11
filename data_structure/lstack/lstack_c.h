@@ -25,7 +25,7 @@ extern "C" {
 	bool getTop(stack_c *s, int *out);
 
 
-	void test();
+	void test_lstack_c();
 
 
 #ifdef _cplusplus

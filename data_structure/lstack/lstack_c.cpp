@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 
-#include "stack_c.h"
+#include "lstack_c.h"
 
 
 void initStack(stack_c *s,int cap) {
@@ -62,7 +62,7 @@ bool getTop(stack_c *s, int *out) {
 }
 
 
-void test() {
+void test_lstack_c() {
 	stack_c s;
 	initStack(&s, 10);
 	if (emptyStack(&s)) {
@@ -87,7 +87,7 @@ void test() {
 }
 
 //test
-int main() {
-	test();
-	return 0;
-}
+//int main() {
+//	test();
+//	return 0;
+//}

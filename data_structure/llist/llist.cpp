@@ -116,7 +116,7 @@ void lx::llist::pop_back() {
 	}
 	if (!head->next) {
 		delete head;
-		head = nullptr;
+		head = nullptr; 
 		return;
 	}
 	_node *first = head;

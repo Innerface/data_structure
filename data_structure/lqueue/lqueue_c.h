@@ -20,11 +20,11 @@ extern "C" {
 	void clearQueue(queue_c *q);//清空队
 	bool emptyQueue(const queue_c *q);//判空
 	bool fullQueue(const queue_c *q);//判满
-	bool push(queue_c *q, const int ele);//入队
-	bool pop(queue_c *q,int *out);//出队
-	void print(const queue_c *q);//遍历打印
+	bool push_c(queue_c *q, const int ele);//入队
+	bool pop_c(queue_c *q);//出队
+	void print_lqueue_c(const queue_c *q);//遍历打印
 
-	void test();
+	void test_lqueue_c();
 
 #ifdef _cplusplus
 }

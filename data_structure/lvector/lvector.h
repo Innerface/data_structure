@@ -38,6 +38,6 @@ namespace lx {
 }
 
 
-void test();
+void test_lvector();
 
 #endif

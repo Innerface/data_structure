@@ -128,7 +128,7 @@ void printLvectorInfo(lx::lvector &lv) {
 
 }
 
-void test() {
+void test_lvector() {
 	lx::lvector lv;
 	std::cout << "push back 0~9:" << std::endl;
 	for (int i = 0; i < 10; i++) {
@@ -166,7 +166,7 @@ void test() {
 
 
 
-int main() {
-	test();
-	return 0;
-}
+//int main() {
+//	test();
+//	return 0;
+//}

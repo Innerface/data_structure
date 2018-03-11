@@ -16,30 +16,25 @@
     <Filter Include="src\lqueue">
       <UniqueIdentifier>{ea049983-cb28-4e36-92a4-fe37d0ad6e04}</UniqueIdentifier>
     </Filter>
-    <Filter Include="test">
-      <UniqueIdentifier>{a08c8607-997a-4422-9b00-3fa0d505bdb1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="llist\llist.cpp">
       <Filter>src\llist</Filter>
     </ClCompile>
-    <ClCompile Include="lqueue\queue.cpp">
-      <Filter>src\lqueue</Filter>
-    </ClCompile>
-    <ClCompile Include="lstack\stack_cpp.cpp">
-      <Filter>src\lstack</Filter>
-    </ClCompile>
     <ClCompile Include="lvector\lvector.cpp">
       <Filter>src\lvector</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="lqueue\queue_c.cpp">
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="lqueue\lqueue.cpp">
       <Filter>src\lqueue</Filter>
     </ClCompile>
-    <ClCompile Include="lstack\stack_c.cpp">
+    <ClCompile Include="lqueue\lqueue_c.cpp">
+      <Filter>src\lqueue</Filter>
+    </ClCompile>
+    <ClCompile Include="lstack\lstack_c.cpp">
+      <Filter>src\lstack</Filter>
+    </ClCompile>
+    <ClCompile Include="lstack\lstack.cpp">
       <Filter>src\lstack</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,20 +42,20 @@
     <ClInclude Include="llist\llist.h">
       <Filter>src\llist</Filter>
     </ClInclude>
-    <ClInclude Include="lqueue\queue.h">
-      <Filter>src\lqueue</Filter>
-    </ClInclude>
-    <ClInclude Include="lqueue\queue_c.h">
-      <Filter>src\lqueue</Filter>
-    </ClInclude>
-    <ClInclude Include="lstack\stack_c.h">
-      <Filter>src\lstack</Filter>
-    </ClInclude>
-    <ClInclude Include="lstack\stack_cpp.h">
-      <Filter>src\lstack</Filter>
-    </ClInclude>
     <ClInclude Include="lvector\lvector.h">
       <Filter>src\lvector</Filter>
+    </ClInclude>
+    <ClInclude Include="lqueue\lqueue.h">
+      <Filter>src\lqueue</Filter>
+    </ClInclude>
+    <ClInclude Include="lqueue\lqueue_c.h">
+      <Filter>src\lqueue</Filter>
+    </ClInclude>
+    <ClInclude Include="lstack\lstack_c.h">
+      <Filter>src\lstack</Filter>
+    </ClInclude>
+    <ClInclude Include="lstack\lstack.h">
+      <Filter>src\lstack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

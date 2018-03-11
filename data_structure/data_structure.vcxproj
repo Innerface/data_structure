@@ -77,19 +77,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="llist\llist.cpp" />
-    <ClCompile Include="lqueue\queue.cpp" />
-    <ClCompile Include="lqueue\queue_c.cpp" />
-    <ClCompile Include="lstack\stack_c.cpp" />
-    <ClCompile Include="lstack\stack_cpp.cpp" />
+    <ClCompile Include="lqueue\lqueue.cpp" />
+    <ClCompile Include="lqueue\lqueue_c.cpp" />
+    <ClCompile Include="lstack\lstack_c.cpp" />
+    <ClCompile Include="lstack\lstack.cpp" />
     <ClCompile Include="lvector\lvector.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="llist\llist.h" />
-    <ClInclude Include="lqueue\queue.h" />
-    <ClInclude Include="lqueue\queue_c.h" />
-    <ClInclude Include="lstack\stack_c.h" />
-    <ClInclude Include="lstack\stack_cpp.h" />
+    <ClInclude Include="lqueue\lqueue.h" />
+    <ClInclude Include="lqueue\lqueue_c.h" />
+    <ClInclude Include="lstack\lstack_c.h" />
+    <ClInclude Include="lstack\lstack.h" />
     <ClInclude Include="lvector\lvector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
