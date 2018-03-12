@@ -8,8 +8,8 @@ int main(){
 	//test_lqueue();
 	//test_lqueue_c();
 	test_lstack();
-	test_lstack_c();
-	test_lvector();
+	//test_lstack_c();
+	//test_lvector();
 
 	return 0;
 }

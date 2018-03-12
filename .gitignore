@@ -1,0 +1,5 @@
+Debug
+*.opendb
+*.db
+*.exe
+*.lib
