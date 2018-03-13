@@ -16,8 +16,11 @@ namespace lx{
 		bool push(const int &ele);
 		bool pop();
 		int getTop();
+		int getCap();
+		int getLength();
+		int getTopIndex();
 		int size();
-		void print();
+		void traverse();
 
 	private:
 		int *elements;
@@ -27,6 +30,8 @@ namespace lx{
 	};
 
 }
+
+void print_information_of_lstack(lx::stack_cpp &s);
 void test_lstack();
 
 #endif

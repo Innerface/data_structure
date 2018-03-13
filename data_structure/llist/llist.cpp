@@ -30,37 +30,49 @@ bool lx::llist::empty() {
 
 int lx::llist::at(int index) {
 	if (empty()) {
-		std::cerr << "list is empty." << std::endl;
-		exit(-1);
+		std::cerr << "get element in "<<index<<" failed,list is empty." << std::endl;
+		return -1;
 	}
-	if (index >= size()) {
-		std::cerr << "index out of bound." << std::endl;
-		exit(-1);
-	}
+	
+	/*this way will traverse some element twice */
+	//if (index >= size()) {
+	//	std::cerr << "index out of bound." << std::endl;
+	//	exit(-1);
+	//}
 
 	_node *p = head;
 	_node *q = head->next;
-	for (int i = 0; i < index; i++) {
+	int i = 0;
+	for (; i <= index && p; i++) {
 		p = q;
 		q = p->next;
+	}
+	if (i != index) {
+		std::cerr << "get element in index "<<index<<" failed,index out of bound." << std::endl;
+		return -1;
 	}
 	return p->data;
 }
 
 int lx::llist::r_at(int index) {
 	if (empty()) {
-		std::cerr << "list is empty." << std::endl;
-		exit(-1);
+		std::cerr << "get the bottom "<<index<<" element failed,list is empty." << std::endl;
+		return -1;
 	}
-	if (index >= size()) {
-		std::cerr << "index out of bound." << std::endl;
-		exit(-1);
-	}
+	//if (index >= size()) {
+	//	std::cerr << "index out of bound." << std::endl;
+	//	return -1;
+	//}
 
 	_node *match = head;
 	_node *current = head;
-	for (int i = 0; i < index; i++) {
+	int i = 0;
+	for (; i <= index && current; i++) {
 		current = current->next;
+	}
+	if (i != index) {
+		std::cerr << "get the bottom " << index << " element faled,index out of bound." << std::endl;
+		return -1;
 	}
 	while (current->next) {
 		match = match->next;
@@ -72,8 +84,8 @@ int lx::llist::r_at(int index) {
 
 int lx::llist::front() {
 	if (empty()) {
-		std::cerr << "list is empty." << std::endl;
-		exit(-1);
+		std::cerr << "get the first element failed,list is empty." << std::endl;
+		return -1;
 	}
 	return head->data;
 }
@@ -81,8 +93,8 @@ int lx::llist::front() {
 
 int lx::llist::back() {
 	if (empty()) {
-		std::cerr << "list is empty." << std::endl;
-		exit(-1);
+		std::cerr << "get the last element failed,list is empty." << std::endl;
+		return -1;
 	}
 	_node *first = head;
 	_node *second = head->next;
@@ -109,11 +121,31 @@ bool lx::llist::push_front(int item) {
 	return true;
 }
 
+
+void lx::llist::pop_front() {
+
+
+}
+
 void lx::llist::pop_back() {
 	if (empty()) {
-		std::cerr << "list is empty." << std::endl;
-		exit(-1);
+		std::cout << "nothing to pop ,list is empty." << std::endl;
+		return;
 	}
+
+	/*
+	error solution:
+
+	_node *first = head;
+	_node *second = head->next;
+	while (second) {
+		first = second;
+		second = second->next;
+	}
+	delete first;
+	first = nullptr; //just point local pointer to the NULL
+	*/
+
 	if (!head->next) {
 		delete head;
 		head = nullptr; 

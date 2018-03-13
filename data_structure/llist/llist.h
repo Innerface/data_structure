@@ -39,8 +39,6 @@ namespace lx{
 
 	private:
 		_node *head;
-
-
 	};
 
 }

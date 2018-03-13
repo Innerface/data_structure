@@ -3,3 +3,4 @@ Debug
 *.db
 *.exe
 *.lib
+*.vs

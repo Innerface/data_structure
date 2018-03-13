@@ -117,7 +117,8 @@ void lx::lvector::remove(int item) {
 		}
  }
 
-void printLvectorInfo(lx::lvector &lv) {
+void print_lvector_Info_cpp(lx::lvector &lv) {
+	std::cout << "information of this vector now:\n";
 	std::cout << "capacity: " << lv.capacity() << std::endl;
 	std::cout << "length: " << lv.size() << std::endl;
 	std::cout << "elements: ";
@@ -129,44 +130,44 @@ void printLvectorInfo(lx::lvector &lv) {
 }
 
 void test_lvector() {
+	std::cout << "---------------------test lvector verison c++ -----------------------\n\n";
+	std::cout << "create a vector ,initial capacity:16\n";
 	lx::lvector lv;
+	print_lvector_Info_cpp(lv);
+
 	std::cout << "push back 0~9:" << std::endl;
 	for (int i = 0; i < 10; i++) {
 		lv.push_back(i);
 	}
-	printLvectorInfo(lv);
-	std::cout << "\npush back 10~19:" << std::endl;
-	for (int i = 10; i < 20; i++) {
+	print_lvector_Info_cpp(lv);
+
+	std::cout << "\npush back 10~17:" << std::endl;
+	for (int i = 10; i < 18; i++) {
 		lv.push_back(i);
 	}
-	printLvectorInfo(lv);
+	print_lvector_Info_cpp(lv); 
 
 	std::cout << "\ndelete index 0 two times:" << std::endl;
 	lv._delete(0);
 	lv._delete(0);
-	printLvectorInfo(lv);
+	print_lvector_Info_cpp(lv);
 
 	std::cout << "\nfind item 2: index " << lv.find(2) << std::endl;
 	std::cout << "\ninsert three 12 to index 1:" << std::endl;
 	lv.insert(1,12);
 	lv.insert(1,12);
 	lv.insert(1,12);
-	printLvectorInfo(lv);
+	print_lvector_Info_cpp(lv);
+
+	std::cout << "find index of the first 12: "<<lv.find(12);
 
 	std::cout << "\nremove all 12:" << std::endl;
 	lv.remove(12);
-	printLvectorInfo(lv);
+	print_lvector_Info_cpp(lv);
 
 	std::cout << "\npop back 15 elements:" << std::endl;
 	for (int i = 0; i < 15; i++) {
 		lv.pop_back();
 	}
-	printLvectorInfo(lv);
+	print_lvector_Info_cpp(lv);
 }
-
-
-
-//int main() {
-//	test();
-//	return 0;
-//}

@@ -48,50 +48,67 @@ int lx::stack_cpp::getTop() {
 	return -1;	//if empty
 }
 
+
+int lx::stack_cpp::getCap() {
+	return capacity;
+}
+
+
+int lx::stack_cpp::getLength() {
+	return length;
+}
+
+
+int lx::stack_cpp::getTopIndex() {
+	return top;
+}
+
+
 int lx::stack_cpp::size() {
 	return length;
 }
 
 
-void lx::stack_cpp::print(){
-	std::cout << "informantion of this stack now :" << std::endl;
-	std::cout << "empty? " << empty() << std::endl;
-	std::cout << "full? " << full() << std::endl;
-	std::cout << "capacity: " << capacity << std::endl;
-	std::cout << "length: " << length << std::endl;
-	std::cout << "index top: " << top << std::endl;
-	std::cout << "element in top: " << getTop() << std::endl;
-	std::cout << "elements: ";
+void lx::stack_cpp::traverse(){
 	for (int i = 0; i < top; i++){
 		std::cout << elements[i] << " ";
 	}
-	std::cout << std::endl << std::endl;
 }
 
 
 
-
+void print_information_of_lstack(lx::stack_cpp &s) {
+	std::cout << "informantion of this stack now :" << std::endl;
+	std::cout << "empty? " << s.empty() << std::endl;
+	std::cout << "full? " << s.full() << std::endl;
+	std::cout << "capacity: " << s.getCap() << std::endl;
+	std::cout << "length: " << s.getLength() << std::endl;
+	std::cout << "index of top: " << s.getTopIndex() << std::endl;
+	std::cout << "element in top: " << s.getTop() << std::endl;
+	std::cout << "elements: "; s.traverse();
+	std::cout << std::endl << std::endl;
+}
 
 void test_lstack() {
 	std::cout << "-------------------------test lstack version c++-----------------------\n" << std::endl;
 	std::cout << "create stack,capacity: 16" << std::endl;
 	lx::stack_cpp s(16);
-	s.print();
+	print_information_of_lstack(s);
 
 	std::cout << "push 16 elements to the stack,";
 	for (int i = 0; i < 16; i++) {
 		s.push(i);
 	}
-	s.print();
+	print_information_of_lstack(s);
 
 	std::cout << "pop 8 elements:";
 	for (int i = 0; i < 8; i++){
 		s.pop();
 	}
-	s.print();
+	print_information_of_lstack(s);
 
 	std::cout << "clear the stack,";
 	s.clear();
-	s.print();
+	print_information_of_lstack(s);
 }
 

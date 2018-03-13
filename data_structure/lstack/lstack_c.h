@@ -22,9 +22,10 @@ extern "C" {
 	bool fullStack(stack_c *s);
 	bool pushStack(stack_c *s, int ele);
 	bool popStack(stack_c *s);
-	bool getTop(stack_c *s, int *out);
+	int getTop(stack_c *s);
+	void traverse_lstack_c(stack_c *s);
 
-
+	void print_information_of_lstack_c(stack_c *s);
 	void test_lstack_c();
 
 
