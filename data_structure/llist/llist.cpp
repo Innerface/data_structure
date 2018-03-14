@@ -123,9 +123,45 @@ bool lx::llist::push_front(int item) {
 
 
 void lx::llist::pop_front() {
-
-
+	if (empty()){
+		return;
+	}
+	_node *tmp = head;
+	head = head->next;
+	delete tmp;
+	tmp = nullptr;
 }
+
+
+bool lx::llist::push_back(int item){
+	_node *tmp = nullptr;
+	try {
+		tmp = new _node;
+	}
+	catch (std::bad_alloc &e) {
+		std::cerr << "bad_alloc:" << e.what() << std::endl;
+		return false;
+	}
+	tmp->data = item;
+	tmp->next = nullptr;
+
+
+	if (empty()){
+		head = tmp;
+		tmp = nullptr;
+		return true;
+	}
+
+	_node *first = head;
+	_node *second = head->next;
+	while (second){
+		first = second;
+		second = second->next;
+	}
+	first->next = tmp;
+	tmp = nullptr;
+}
+
 
 void lx::llist::pop_back() {
 	if (empty()) {
@@ -162,8 +198,60 @@ void lx::llist::pop_back() {
 }
 
 
-bool insert(int index, int item);//插入元素到第index
-bool erase(int index);//删除第index哥元素
+bool lx::llist::insert(int index, int item){
+	_node *tmp = nullptr;
+	try {
+		tmp = new _node;
+	}
+	catch (std::bad_alloc &e) {
+		std::cerr << "bad_alloc:" << e.what() << std::endl;
+		return false;
+	}
+	tmp->data = item;
+	tmp->next = nullptr;
+
+
+	if (empty()){
+		if (index != 0){
+			std::cout << "index out of bound" << std::endl;
+			return false;
+		}
+		head = tmp;
+		tmp = nullptr;
+		return true;
+	}
+	else{
+		_node *first = head;
+		_node *second = head->next;
+		int i = 0;
+		for (; i <= index&&second; i++){
+			first = second;
+			second = second->next;
+		}
+		if (i != index){
+			std::cout << "index out of bound" << std::endl;
+			return false;
+		}
+		first->next = tmp;
+		tmp = nullptr;
+		second = nullptr;
+		return true;
+	}
+}
+
+
+bool lx::llist::erase(int index){
+	if (empty()){
+		std::cout << "index out of bound,list is empty." << std::endl;
+		return false;
+	}
+	
+
+
+
+
+}
+
 void reverse();//逆序链表
 void remove(int item);//删除链表中的所有item
 void lx::llist::clear(){
