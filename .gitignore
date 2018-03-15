@@ -4,3 +4,6 @@ Debug
 *.exe
 *.lib
 *.vs
+*.sdf
+*.v12.suo
+*.opensdf
