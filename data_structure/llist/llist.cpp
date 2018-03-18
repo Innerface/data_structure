@@ -16,8 +16,8 @@ int lx::llist::size() {
 		return 0;
 	}
 	while (p) {
-		p = p->next;
 		length++;
+		p = p->next;
 	}
 	return length;
 }
@@ -43,7 +43,7 @@ int lx::llist::at(int index) {
 	_node *p = head;
 	_node *q = head->next;
 	int i = 0;
-	for (; i <= index && p; i++) {
+	for (; i <= index && q; i++) {
 		p = q;
 		q = p->next;
 	}
@@ -242,18 +242,99 @@ bool lx::llist::insert(int index, int item){
 
 bool lx::llist::erase(int index){
 	if (empty()){
-		std::cout << "index out of bound,list is empty." << std::endl;
+		std::cout << "erase element at index \"" << index << "\" failed,index out of bound,list is empty." << std::endl;
 		return false;
 	}
-	
 
 
+	if (!head->next){
+		if (index != 0){
+			std::cout << "erase element at index \"" << index << "\" failed,index out of bound." << std::endl;
+			return false;
+		}
+		_node *tmp = head;
+		head = head->next;
+		delete tmp;
+		tmp = nullptr;
+		return true;
+	}
 
+	_node *first = head;
+	_node *second = head->next;
 
+	int i = 0;
+	for (; i <= (index-1)&&second->next; i++){
+		first = second;
+		second = second->next;
+	}
+	if (i != index-1){
+		std::cout << "erase element at index \"" << index << "\" failed,index out of bound." << std::endl;
+		return false;
+	}
+
+	first->next = second->next;
+	delete second;
 }
 
-void reverse();//逆序链表
-void remove(int item);//删除链表中的所有item
-void lx::llist::clear(){
 
+void lx::llist::reverse(){
+	if (empty() || !head->next){
+		return;
+	}
+	_node *a = nullptr;
+	_node *b = head;
+	_node *c = head->next;
+
+	while (c){
+		b->next = a;
+		a = b;
+		b = c;
+		c = c->next;
+	}
+	b->next = a;
+	head = b;
+}
+
+
+void lx::llist::clear(){
+	if (empty()){
+		return;
+	}
+	_node *first = head;
+	_node *second = head->next;
+
+	while (second){
+		delete first;
+		first = second;
+		second = second->next;
+	}
+}
+
+
+void lx::llist::print(){
+	if (empty()){
+		return;
+	}
+
+	_node *a = head;
+	while (a){
+		std::cout << a->data << " ";
+		a = a->next;
+	}
+	std::cout<<std::endl;
+}
+
+
+void test_llist(){
+	std::cout << "-------------------------------test llist version c++ -------------------------\n" << std::endl;
+	std::cout << "create list." << std::endl;
+
+	lx::llist l;
+	l.print();
+
+	std::cout << "push 3 element to the front fo list." << std::endl;
+	for (int i = 0; i < 3; i++){
+		l.push_front(i);
+	}
+	l.print();
 }

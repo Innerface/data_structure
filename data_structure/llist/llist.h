@@ -33,8 +33,10 @@ namespace lx{
 		bool insert(int index, int item);//将item插入到index位置
 		bool erase(int index);//删除第index个元素
 		void reverse();//逆序链表
-		void remove(int item);//删除链表中的所有item元素
+		//void remove(int item);//删除链表中的所有item元素
 		void clear();//清空链表
+
+		void print();
 
 
 	private:
@@ -43,6 +45,8 @@ namespace lx{
 
 }
 
+
+void test_llist();
 
 
 #endif
