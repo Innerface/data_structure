@@ -16,6 +16,9 @@
     <Filter Include="src\lqueue">
       <UniqueIdentifier>{ea049983-cb28-4e36-92a4-fe37d0ad6e04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\lhash">
+      <UniqueIdentifier>{31038ffb-7bc7-4e4f-bc91-f370a5b4a5bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="llist\llist.cpp">
@@ -37,6 +40,9 @@
     <ClCompile Include="lstack\lstack.cpp">
       <Filter>src\lstack</Filter>
     </ClCompile>
+    <ClCompile Include="lhash\lhash.cpp">
+      <Filter>src\lhash</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="llist\llist.h">
@@ -56,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="lstack\lstack.h">
       <Filter>src\lstack</Filter>
+    </ClInclude>
+    <ClInclude Include="lhash\lhash.h">
+      <Filter>src\lhash</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

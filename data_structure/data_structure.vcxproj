@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lhash\lhash.cpp" />
     <ClCompile Include="llist\llist.cpp" />
     <ClCompile Include="lqueue\lqueue.cpp" />
     <ClCompile Include="lqueue\lqueue_c.cpp" />
@@ -85,6 +86,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lhash\lhash.h" />
     <ClInclude Include="llist\llist.h" />
     <ClInclude Include="lqueue\lqueue.h" />
     <ClInclude Include="lqueue\lqueue_c.h" />

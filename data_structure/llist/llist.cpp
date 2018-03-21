@@ -43,7 +43,7 @@ int lx::llist::at(int index) {
 	_node *p = head;
 	_node *q = head->next;
 	int i = 0;
-	for (; i <= index && q; i++) {
+	for (; i < index && q; i++) {
 		p = q;
 		q = p->next;
 	}
@@ -67,7 +67,7 @@ int lx::llist::r_at(int index) {
 	_node *match = head;
 	_node *current = head;
 	int i = 0;
-	for (; i <= index && current; i++) {
+	for (; i < index && current; i++) {
 		current = current->next;
 	}
 	if (i != index) {
@@ -160,6 +160,7 @@ bool lx::llist::push_back(int item){
 	}
 	first->next = tmp;
 	tmp = nullptr;
+	return true;
 }
 
 
@@ -224,18 +225,28 @@ bool lx::llist::insert(int index, int item){
 		_node *first = head;
 		_node *second = head->next;
 		int i = 0;
-		for (; i <= index&&second; i++){
+		for (; i < index-1&&second; i++){
 			first = second;
 			second = second->next;
 		}
-		if (i != index){
+		if (i != index-1){
 			std::cout << "index out of bound" << std::endl;
 			return false;
 		}
-		first->next = tmp;
-		tmp = nullptr;
-		second = nullptr;
-		return true;
+		if (!second){
+			first->next = tmp;
+			tmp = nullptr;
+			second = nullptr;
+			return true;
+		}
+		else{
+			tmp->next = second;
+			first->next = tmp;
+			tmp = nullptr;
+			second = nullptr;
+			return true;
+		}
+
 	}
 }
 
@@ -263,7 +274,7 @@ bool lx::llist::erase(int index){
 	_node *second = head->next;
 
 	int i = 0;
-	for (; i <= (index-1)&&second->next; i++){
+	for (; i < (index-1)&&second->next; i++){
 		first = second;
 		second = second->next;
 	}
@@ -274,6 +285,7 @@ bool lx::llist::erase(int index){
 
 	first->next = second->next;
 	delete second;
+	return true;
 }
 
 
@@ -308,6 +320,7 @@ void lx::llist::clear(){
 		first = second;
 		second = second->next;
 	}
+	head = nullptr;
 }
 
 
@@ -332,9 +345,56 @@ void test_llist(){
 	lx::llist l;
 	l.print();
 
-	std::cout << "push 3 element to the front fo list." << std::endl;
+	std::cout << "push 3 elements to the front of list." << std::endl;
 	for (int i = 0; i < 3; i++){
 		l.push_front(i);
 	}
+	l.print();
+	std::cout << "get the front element: " << l.front()<< std::endl;
+	std::cout << "get the back element: " << l.back() << std::endl;
+	std::cout << "push 3 elements to the back of list." << std::endl;
+	for (int i = 3; i < 6; i++){
+		l.push_back(i);
+	}
+	l.print();
+
+	std::cout << "get the element of index 3: " << l.at(3) << std::endl;
+	std::cout << "r_at(3): " << l.r_at(3) << std::endl;
+
+	std::cout << "insert a element to index 4: " << std::endl;
+	l.insert(4, 100);
+	l.print();
+	std::cout << "erase the element of index 4: " << std::endl;
+	l.erase(4);
+	l.print();
+	std::cout << "pop 2 elements from front." << std::endl;
+	l.pop_front();
+	l.pop_front();
+	l.print();
+
+	std::cout << "pop 2 elements form back." << std::endl;
+	l.pop_back(), l.pop_back();
+	l.print();
+
+	std::cout << "push 10 elements to front:" << std::endl;
+	for (int i = 10; i < 20; i++){
+		l.push_front(i);
+	}
+	l.print();
+
+	std::cout << "reverse list." << std::endl;
+	l.reverse();
+	l.print();
+
+	std::cout << "empty? " << l.empty() << std::endl;
+
+	std::cout << "clear list." << std::endl;
+	l.clear();
+	l.print();
+
+	std::cout << "empty? " << l.empty() << std::endl;
+
+
+
 	l.print();
 }
