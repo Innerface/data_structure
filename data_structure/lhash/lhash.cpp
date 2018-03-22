@@ -4,14 +4,16 @@
 
 
 
-lx::lhash::lhash(int l) :len(l){
+lx::lhash::lhash(std::size_t l) :len(l){
 	try{
 		data = new hashObject[len];
 	}
 	catch (std::bad_alloc &e){
 		std::cout << "bad_alloc" << e.what() << std::endl;
 	}
-	memset(data, 0, len);
+	for (std::size_t i = 0; i < len; i++) {
+		data[i].setKey(hashObject::getNullKey());
+	}
 }
 
 
@@ -22,21 +24,38 @@ lx::lhash::~lhash(){
 }
 
 
-void lx::lhash::add(int key, int value){
-	int index = hash(key);
+void lx::lhash::add(std::string key, std::string value){
+    std::size_t index = hash(key);
 	data[index].setKey(key);
 	data[index].setValue(value);
 }
 
 
-bool lx::lhash::exists(int key){
+bool lx::lhash::exists(std::string key){
+	std::size_t index = hash(key);
+	if (data[index].getKey() != hashObject::getNullKey()) {
+		return true;
+	}
+	return false;
+}
 
+
+std::string lx::lhash::get(std::string key) {
+	std::size_t index = hash(key);
+	return data[index].getValue();
+}
+
+void lx::lhash::remove(std::string key) {
+	std::size_t index = hash(key);
+	data[index].setKey(hashObject::getNullKey());
 }
 
 
 
-
-
-int lx::lhash::hash(int key){
-	return key%len;
+std::size_t lx::lhash::hash(std::string key){
+	std::size_t ha = 0;
+	for (auto c : key) {
+		ha = ha * 131 + c;
+	}
+	return ha;
 }

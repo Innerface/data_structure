@@ -257,7 +257,6 @@ bool lx::llist::erase(int index){
 		return false;
 	}
 
-
 	if (!head->next){
 		if (index != 0){
 			std::cout << "erase element at index \"" << index << "\" failed,index out of bound." << std::endl;

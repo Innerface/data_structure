@@ -16,49 +16,48 @@ namespace lx{
 	class hashObject{
 	public:
 		hashObject(){}
-		hashObject(int k, int v) :key(k), value(v){}
+		hashObject(std::string k, std::string v) :key(k), value(v){}
 		~hashObject(){}
 
-		void setKey(int k){
-			key = k;
-		}
+		void setKey(std::string k){ key = k;}
 
-		void setValue(int v){
-			value = v;
-		}
+		void setValue(std::string v){ value = v;}
 
-		int getKey(){ return key; }
+		std::string getKey(){ return key; }
 
-		int getValue(){ return value; }
+		static const std::string getNullKey() { return "<null>"; }
+
+		std::string getValue(){ return value; }
+
 	private:
-		int key;
-		int value;
+		std::string key;
+		std::string value;
 	};
 
 
 	class lhash{
 	public:
-		lhash(int len);
+		lhash(std::size_t len);
 		~lhash();
 		/*   add a key-value to hash,if key exists ,update its value   */
-		void add(int key,int value);
+		void add(std::string key, std::string value);
 
 		/*   if key exists in hash   */
-		bool exists(int key);
+		bool exists(std::string key);
 
 		/*   get value from hash by key   */
-		int get(int key);
+		std::string get(std::string key);
 
 		/*   remove key-value from hash by key   */
-		bool remove(int key);
+		void remove(std::string key);
 	private:
 		/*   hash function   */
-		int hash(int key);
+		std::size_t hash(std::string key);
 
 	private:
 		/*   data storage   */
 		hashObject *data;
-		int len;
+		std::size_t len;
 	};
 }
 
