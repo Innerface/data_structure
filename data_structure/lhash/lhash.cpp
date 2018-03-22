@@ -26,8 +26,20 @@ lx::lhash::~lhash(){
 
 void lx::lhash::add(std::string key, std::string value){
     std::size_t index = hash(key);
-	data[index].setKey(key);
-	data[index].setValue(value);
+	std::size_t i = 0;
+	while (i<len&&data[index].getKey != hashObject::getNullKey()) {
+		index = (index + 1) % len;
+	}
+
+
+    if(i==len-1){
+		data[index].setKey(key);
+		data[index].setValue(value);
+	}
+	else {
+		return;
+	}
+
 }
 
 
